@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ArrowDownCircleIcon, ArrowUpCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import DailyContext from '../../contexts/DailyContext';
 
-function InProgressCard() {
+function InProgressCard({context}) {
 
   const {
     waitingTodos,
@@ -14,7 +14,7 @@ function InProgressCard() {
     doneTodos,
     setDoneTodos,
     setDoneCount
-  } = useContext(DailyContext);
+  } = useContext(context);
 
   function downGradeAInProgressTask(inProgressTask) {
     const newWaitingTodos = [...waitingTodos, inProgressTask];

@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
 import DailyContext from '../../contexts/DailyContext';
 
-export default function TaskForm() {
+export default function TaskForm({context}) {
 
-  const { waitingTodos, setWaitingTodos, setWaitingCount } = useContext(DailyContext);
+  const { waitingTodos, setWaitingTodos, setWaitingCount } = useContext(context);
   const [task, setTask] = useState("");
 
   function addWaitingTodo(task) {

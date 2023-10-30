@@ -1,25 +1,22 @@
 import React, { useContext } from 'react'
 import './App.css'
-import WaitingCard from './components/WaitingCard'
-import InProgressCard from './components/InProgressCard'
-import DoneCard from './components/DoneCard'
-import DailyContextProvider from '../contexts/DailyContextProvider'
-import TaskForm from './components/TaskForm'
-import Summary from './components/Summary'
+import Layout from './components/Layout'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import DailyTodos from './pages/DailyTodos'
+import WeeklyTodos from './pages/WeeklyTodos'
+import MonthlyTodos from './pages/MonthlyTodos'
 
 function App() {
   return (
-    <DailyContextProvider>
-      <div>
-        <Summary />
-        <TaskForm />
-        <div className="flex flex-col w-full md:w-11/12 lg:w-3/4 md:gap-3 mx-auto">
-          <WaitingCard />
-          <InProgressCard />
-          <DoneCard />
-        </div>
-      </div>
-    </DailyContextProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<DailyTodos />}></Route>
+          <Route path="/weekly-todos" element={<WeeklyTodos />}></Route>
+          <Route path="/monthly-todos" element={<MonthlyTodos />}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
