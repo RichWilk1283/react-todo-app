@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import DailyContext from '../../contexts/DailyContext';
 
 function Summary({context}) {
 

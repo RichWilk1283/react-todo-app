@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import DailyContext from '../../contexts/DailyContext';
 
 export default function TaskForm({context}) {
 
@@ -14,10 +13,10 @@ export default function TaskForm({context}) {
 
   const handleInputChange = (e) => {
     const { value } = e.target;
-    const newTask = value;
-    setTask(newTask);
+    setTask(value);
   }
 
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (task === "" || null) {
@@ -28,12 +27,12 @@ export default function TaskForm({context}) {
       setTask("");
     }
   }
-
+  
   return (
     <div className="flex flex-col items-center text-center m-2 mb-4">
       <form onSubmit={handleSubmit} className='flex flex-col w-11/12 lg:w-3/4 border-2 border-blue-900 bg-gray-200 items-center gap-2 rounded-xl'>
-        <label htmlFor="waiting-todo" className='mt-2'>Enter your task:</label>
-        <input onChange={handleInputChange} type="text" name="task" value={task} id="waiting-todo" className='border-2 border-blue-900 w-11/12 rounded-md' />
+        <label htmlFor="todo-description" className='mt-2'>Enter your task:</label>
+        <input onChange={handleInputChange} type="text" name="task" value={task} id="todo-description" className='border-2 border-blue-900 w-11/12 rounded-md' />
         <button className=' border-2 border-blue-900 w-1/2 rounded-2xl mb-2' type="submit">Add to do</button>
       </form>
     </div>

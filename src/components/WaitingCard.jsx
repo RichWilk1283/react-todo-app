@@ -1,6 +1,5 @@
 import React, { useContext} from 'react';
 import {ArrowDownCircleIcon, XCircleIcon} from "@heroicons/react/24/outline";
-import DailyContext from '../../contexts/DailyContext';
 
 function WaitingCard({context}) {
 
